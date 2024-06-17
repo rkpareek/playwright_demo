@@ -11,6 +11,7 @@ const CDP = require('chrome-remote-interface');
 
   // Connect to Chrome DevTools Protocol
   const client = await CDP({ target: page.context().pages()[0]._target._targetId });
+  const client1 = await CDP({ target: page.context().pages()[1]._target._targetId });
 
   // Enable the WebAuthn domain
   const { WebAuthn } = client;
