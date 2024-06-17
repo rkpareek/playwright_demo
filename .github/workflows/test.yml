@@ -1,0 +1,20 @@
+name: test
+
+on: 
+  push: 
+    branches: [dev]
+
+jobs:
+    testrun:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - uses: actions/node-setup@v3
+            with:
+                node-version: 18.0
+             
+          - name: npm install
+            run: npm ci
+            env:
+                test: ${{secrets.GITHUB_TOKEN}}
+
